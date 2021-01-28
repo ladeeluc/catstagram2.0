@@ -24,4 +24,32 @@
     // You will need to create an addPhoto function in App.jsx (see instructions there).
     // In this component, you will need to pull out addPhoto from context and call it on handleSubmit and pass in the url.
 
-import React from 'react';
+    import React,{useState} from 'react'
+    import FeedList from './FeedList'
+    
+        // TODO: handle context
+        function ImageUploaderForm() { 
+            const [url,setUrl] = useState('')
+    
+            const handleChange = (e) =>
+            setUrl(e.target.value)
+    
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                console.log(url)
+                setUrl('')
+            }
+            return (
+                <form className="ImageUploaderForm">
+                <input
+                    placeholder="Add URL here"
+                    value={url}
+                    onChange={handleChange} />
+                <button className="SubmitButton" onClick={handleSubmit} type="submit">
+                        Submit</button>
+                </form>
+            );
+        }
+        
+        export default ImageUploaderForm;
+        

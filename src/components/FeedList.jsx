@@ -12,4 +12,22 @@
 // Exercise 6: Provide Context
     // pull the photos out of the context instead of the props
 
-import React from 'react';
+	import React,{useContext, useEffect} from 'react';
+	import FeedItem from './FeedItem'
+	import {PhotosContext} from '../App'
+		
+		
+		
+		function FeedList(props) {
+			const {photos, addPhotos} = useContext(PhotosContext)
+			
+	
+			return (
+				<div className="FeedList">
+					{photos && photos.map(photo => 
+				 < FeedItem  photos={photo}/>)}
+			   </div>
+			)
+		}
+	
+		export default FeedList;

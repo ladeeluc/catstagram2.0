@@ -11,4 +11,29 @@
 	// Hint: what do you need in order to get the image to display?
 	// Hint: what do you need in order to get likes to display in the Likes component?
 
-import React from 'react';
+	import React from 'react';
+import Likes from './Likes.jsx';
+import datainfo from '../data.json'
+
+function FeedItem(props) {
+	const {photos} = datainfo
+	//const {photos} = props
+   
+
+    return (
+        <div className="FeedItem">
+			{photos.map(photo =>  
+            <div><img className="Image" alt = "cat" src={photo.url}/>
+			<Likes totalLikes={photo.likes} />
+		</div>)
+	
+	}
+
+        </div>
+    );
+}
+
+export default FeedItem;
+
+
+
